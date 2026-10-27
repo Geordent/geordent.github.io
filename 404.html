@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ArtMap Georgia переехала</title>
+<link rel="canonical" href="https://artmap-georgia.github.io/AMG/">
+<meta http-equiv="refresh" content="3; url=https://artmap-georgia.github.io/AMG/">
+<script>
+// Старый адрес geordent.github.io/AMG → новый artmap-georgia.github.io/AMG с тем же путём и хешем
+// (#s=объект, #route=маршрут). Заодно снимаем service worker и кэш старого адреса.
+(function () {
+  var p = location.pathname;
+  if (!/^\/AMG(\/|$)/.test(p)) p = '/AMG/';
+  var target = 'https://artmap-georgia.github.io' + p + location.search + location.hash;
+  window.__amgTarget = target;
+  try { if (navigator.serviceWorker) navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); }); } catch (e) {}
+  try { if (window.caches) caches.keys().then(function (ks) { ks.forEach(function (k) { caches.delete(k); }); }); } catch (e) {}
+  location.replace(target);
+})();
+</script>
+</head>
+<body style="margin:0;padding:24px;font:16px/1.5 system-ui,sans-serif;background:#F6EFE4;color:#2B2420">
+<p>ArtMap Georgia переехала на новый адрес: <a id="go" style="color:#1F6F78" href="https://artmap-georgia.github.io/AMG/">artmap-georgia.github.io/AMG</a></p>
+<p>ArtMap Georgia has moved · ArtMap Georgia გადავიდა ახალ მისამართზე</p>
+<script>if (window.__amgTarget) document.getElementById('go').href = window.__amgTarget;</script>
+</body>
+</html>
